@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders Todo Manager brand', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const brand = screen.getByText(/Todo Manager/i);
+  expect(brand).toBeInTheDocument();
+});
+
+test('has Add button', () => {
+  render(<App />);
+  const addBtn = screen.getByRole('button', { name: /add todo|add/i });
+  expect(addBtn).toBeInTheDocument();
 });
